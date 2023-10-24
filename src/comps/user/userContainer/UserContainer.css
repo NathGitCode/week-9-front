@@ -1,0 +1,7 @@
+.user-container {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: auto auto auto;
+    margin: 35px;
+
+}
