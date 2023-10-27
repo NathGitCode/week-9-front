@@ -50,3 +50,19 @@ export const getUsers = async () => {
     console.log(error);
   }
 };
+
+export const getSingleUser = async (username) => {
+  try {
+    const response = await fetch(`http://localhost:5001/users/${username}`, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

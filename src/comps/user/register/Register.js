@@ -13,7 +13,6 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const newUser = await registerUser(username, email, password);
   };
 
