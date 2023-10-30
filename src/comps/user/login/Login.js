@@ -3,7 +3,7 @@ import "./Login.css";
 import { loginUser } from "../../../utils";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,12 +11,12 @@ const Login = () => {
     setter(e.target.value);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const newUser = await loginUser(username, password);
+    await setUser(newUser);
   };
 
-  console.log(username);
-  console.log(password);
   return (
     <div className="logreg">
       <h4>Login</h4>
@@ -34,9 +34,7 @@ const Login = () => {
           onChange={(e) => handleChange(e, setPassword)}
         />
         <div>
-          <Link to="/userinfo">
-            <input className="buttons" type="submit" />
-          </Link>
+          <input className="buttons" type="submit" value="Login" />
         </div>
       </form>
     </div>

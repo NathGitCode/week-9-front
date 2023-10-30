@@ -1,8 +1,0 @@
-.user-container {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: 1fr 1fr auto;
-    margin: 35px;
-    width: 60vw;
-
-}

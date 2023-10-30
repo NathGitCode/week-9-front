@@ -22,3 +22,13 @@
   font-weight: 800;
   transition: background, color .1s ease-in-out;
 }
+
+
+.user-container {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr auto;
+  margin: 35px;
+  width: 60vw;
+
+}
