@@ -4,13 +4,17 @@ import "../src/comps/layout/footer/Footer.css";
 import CardContainer from "./comps/cards/cardContainer/CardContainer";
 import Footer from "./comps/layout/footer/Footer";
 import Header from "./comps/layout/header/Header";
-import UserContainer from "./comps/user/userContainer/UserContainer";
-import LoginSuc from "./comps/loginSuc/LoginSuc";
+
+import LoginSuc from "./comps/user/login/loginSucc/LoginSuc";
 import { getSingleUser, getUsers } from "./utils";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./comps/user/login/Login";
+import Register from "./comps/user/register/Register";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
+  console.log(user);
 
   useEffect(() => {
     const dataReq = async () => {
@@ -23,9 +27,20 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<UserContainer />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="user-container">
+                <Register />
+                <Login setUser={setUser} />
+              </div>
+              <LoginSuc user={user} />
+            </>
+          }
+        />
+
         <Route path="/users" element={<CardContainer users={users} />} />
-        <Route path="/userinfo" element={<LoginSuc users={users} />} />
       </Routes>
       <Footer />
     </BrowserRouter>
